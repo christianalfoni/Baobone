@@ -1,4 +1,4 @@
-# Baobone
+# Baobone (BB)
 Flux framework inspired by Backbone, using Baobab
 
 ## Concept
@@ -12,10 +12,10 @@ Baobone uses the FLUX architecture to free your from this state constraint, but 
 
 ### Define the state
 ```javascript
-var Baobone = require('Baobone');
+var BB = require('Baobone');
 
 // Will pass a model and a view to component
-GEL.state('profile', {
+BB.state('profile', {
   url: '/profile',
   model: {
     username: String,
@@ -27,7 +27,7 @@ GEL.state('profile', {
 });
 
 // Will pass a collection and a view to component
-GEL.state('profile', {
+BB.state('profile', {
   url: '/profile',
   collection: {
     username: String,
@@ -44,12 +44,12 @@ GEL.state('profile', {
 ### Use the state
 ```javascript
 var ProfileComponent = React.createClass({
-  mixins: [GEL.mixin('profile')],
+  mixins: [BB.mixin('profile')],
   componentWillMount: function () {
-    GEL.fetch('profile');
+    BB.fetch('profile');
   },
   toggleNotifications: function () {
-    GEL.view('profile', {
+    BB.view('profile', {
       showNotifications: !this.view('showNotifications')
     });
   },
@@ -100,7 +100,7 @@ Get the status of the state (isFetching, hasError)
 ```javascript
 
 /* STATE */
-GEL.state('tasks', {
+BB.state('tasks', {
   url: '/tasks',
   collection: {
     id: String,
@@ -127,12 +127,12 @@ GEL.state('tasks', {
 
 /* COMPONENT */
 var TasksComponent = React.createClass({
-  mixins: [GEL.mixin('tasks')],
+  mixins: [BB.mixin('tasks')],
   componentWillMount: function () {
-    GEL.fetch('tasks');
+    BB.fetch('tasks');
   },
   changePage: function (page) {
-    GEL.fetch('tasks', {
+    BB.fetch('tasks', {
       offset: page -1
     });
   },
