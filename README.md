@@ -108,14 +108,20 @@ GEL.state('tasks', {
   },
   parse: function () {
     this.view.totalPages = response.meta.totalPages;
-    return response.rows;
+    return response.rows.map(function (task) {
+      return {
+        id: task.id,
+        description: task.description
+      };
+    });
   },
   params: {
     itemsPrPage: 10,
     offset: 0
   },
   view: {
-    columns: ['id', 'description']
+    columns: ['id', 'description'],
+    totalPages: 1
   }
 });
 
