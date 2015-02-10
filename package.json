@@ -1,0 +1,20 @@
+{
+  "name": "GELState",
+  "version": "0.0.0",
+  "description": "A flux application state layer for React JS",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gloppen EDB Lag",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^1.5.3",
+    "webpack-dev-server": "^1.7.0"
+  },
+  "dependencies": {
+    "baobab": "^0.3.1",
+    "react-addons": "*"
+  }
+}
